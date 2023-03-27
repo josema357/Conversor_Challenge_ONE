@@ -1,0 +1,22 @@
+
+.title-bar {
+    -fx-background-color: #EC3E77;
+    -fx-text-fill: white;
+
+}
+.back{
+    -fx-background-color: #434b4e;
+}
+.textField{
+    -fx-background-color: #4F5658;
+    -fx-text-fill: white;
+}
+.inputField{
+    -fx-background-color: #3b4346;
+    -fx-border-width: 0;
+    -fx-text-fill: white;
+}
+.btnConfirm{
+    -fx-background-color: #EC3E77;
+    -fx-text-fill: white;
+}
