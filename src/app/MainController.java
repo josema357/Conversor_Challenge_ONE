@@ -1,10 +1,10 @@
 package app;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
+import javafx.scene.layout.HBox;
+
 
 
 import java.net.URL;
@@ -17,20 +17,15 @@ public class MainController implements Initializable {
     private ImageView maximize;
     @FXML
     private ImageView close;
+    @FXML
+    private HBox customTitleBar;
+
+    private double xOffset;
+    private double yOffset;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        minimize.setOnMouseClicked(event ->{
-            Stage currentStage=(Stage) minimize.getScene().getWindow();
-            currentStage.setIconified(true);
-        });
-        close.setOnMouseClicked(event ->{
-            Stage currentStage=(Stage) close.getScene().getWindow();
-            currentStage.close();
-        });
-        maximize.setOnMouseClicked(event ->{
-            
-        });
+
     }
 
 }
