@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/MainWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/Main.fxml"));
         Image icon=new Image(getClass().getResourceAsStream("../assets/motherboard-fill.png"));
         stage.getIcons().add(icon);
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);

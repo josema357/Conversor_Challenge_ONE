@@ -10,11 +10,22 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$USER_HOME$/Downloads/JavaFX/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib" />
+          <root url="file://$PATH_TO_FX$" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/Downloads/JavaFX/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib" recursive="false" />
+        <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$PATH_TO_FX$" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
       </library>
     </orderEntry>
   </component>
