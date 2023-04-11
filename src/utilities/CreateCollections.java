@@ -4,28 +4,30 @@ import java.util.ArrayList;
 
 public class CreateCollections {
 
-    public static ArrayList<ConvertFrom> createCollection(){
-        ArrayList<ConvertFrom> convertFrom=new ArrayList<>();
+    public static ArrayList<ObjectCurrency> createCollection(){
+        ArrayList<ObjectCurrency> objectCurrency =new ArrayList<>();
 
-        convertFrom.add(new ConvertFrom(1, "Sol", GUIController.getImage("PEN")));
-        convertFrom.add(new ConvertFrom(2, "American Dollar",GUIController.getImage("USD")));
-        convertFrom.add(new ConvertFrom(3, "Pounds Sterling",GUIController.getImage("GBP")));
-        convertFrom.add(new ConvertFrom(4, "Japanese Yen",GUIController.getImage("JPY")));
-        convertFrom.add(new ConvertFrom(5, "South Korean Won",GUIController.getImage("KRW")));
-        return convertFrom;
+        objectCurrency.add(new ObjectCurrency(1, "Sol", GUIController.getImage("PEN")));
+        objectCurrency.add(new ObjectCurrency(2, "American Dollar",GUIController.getImage("USD")));
+        objectCurrency.add(new ObjectCurrency(3, "Euro",GUIController.getImage("EUR")));
+        objectCurrency.add(new ObjectCurrency(4, "Pounds Sterling",GUIController.getImage("GBP")));
+        objectCurrency.add(new ObjectCurrency(5, "Japanese Yen",GUIController.getImage("JPY")));
+        objectCurrency.add(new ObjectCurrency(6, "South Korean Won",GUIController.getImage("KRW")));
+        return objectCurrency;
     }
-    public static ArrayList<ConvertFrom> createCollectionFrom(){
-        ArrayList<ConvertFrom> convertFrom=new ArrayList<>();
+    public static ArrayList<ObjectCurrency> createCollectionFrom(){
+        ArrayList<ObjectCurrency> objectCurrency =new ArrayList<>();
 
-        convertFrom.add(new ConvertFrom(2, "American Dollar",GUIController.getImage("USD")));
-        convertFrom.add(new ConvertFrom(3, "Pounds Sterling",GUIController.getImage("GBP")));
-        convertFrom.add(new ConvertFrom(4, "Japanese Yen",GUIController.getImage("JPY")));
-        convertFrom.add(new ConvertFrom(5, "South Korean Won",GUIController.getImage("KRW")));
-        return convertFrom;
+        objectCurrency.add(new ObjectCurrency(2, "American Dollar",GUIController.getImage("USD")));
+        objectCurrency.add(new ObjectCurrency(3, "Euro",GUIController.getImage("EUR")));
+        objectCurrency.add(new ObjectCurrency(4, "Pounds Sterling",GUIController.getImage("GBP")));
+        objectCurrency.add(new ObjectCurrency(5, "Japanese Yen",GUIController.getImage("JPY")));
+        objectCurrency.add(new ObjectCurrency(6, "South Korean Won",GUIController.getImage("KRW")));
+        return objectCurrency;
     }
-    public static ArrayList<ConvertFrom> createCollectionTo(){
-        ArrayList<ConvertFrom> convertFrom=new ArrayList<>();
-        convertFrom.add(new ConvertFrom(1, "Sol", GUIController.getImage("PEN")));
-        return convertFrom;
+    public static ArrayList<ObjectCurrency> createCollectionTo(){
+        ArrayList<ObjectCurrency> objectCurrency =new ArrayList<>();
+        objectCurrency.add(new ObjectCurrency(1, "Sol", GUIController.getImage("PEN")));
+        return objectCurrency;
     }
 }

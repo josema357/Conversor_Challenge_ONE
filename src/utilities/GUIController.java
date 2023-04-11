@@ -8,6 +8,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+import java.util.Objects;
+
 public class GUIController {
     public static ImageView generateImageView(Image image,int width,int height){
         ImageView imageView=new ImageView(image);
@@ -17,9 +19,9 @@ public class GUIController {
         return imageView;
     }
     public static Image getImage(String fileName){
-        return  new Image(GUIController.class.getResource("../assets/"+fileName+".png").toString());
+        return  new Image(Objects.requireNonNull(GUIController.class.getResource("../assets/" + fileName + ".png")).toString());
     }
-    public static HBox generateHBox(ConvertFrom from){
+    public static HBox generateHBox(ObjectCurrency from){
         Label label=new Label(from.getCoin());
         label.setFont(new Font(12));
         label.setTextFill(Color.BLACK);

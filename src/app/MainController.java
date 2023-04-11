@@ -1,6 +1,7 @@
 package app;
 
-import utilities.ConvertFrom;
+import app.converters.CurrencyConverter;
+import utilities.ObjectCurrency;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,9 +23,9 @@ public class MainController implements Initializable {
     @FXML
     private ComboBox<String> comboBoxConverter;
     @FXML
-    private ComboBox<ConvertFrom> comboBoxFrom;
+    private ComboBox<ObjectCurrency> comboBoxFrom;
     @FXML
-    private ComboBox<ConvertFrom> comboBoxTo;
+    private ComboBox<ObjectCurrency> comboBoxTo;
     @FXML
     private TextField inputAmount;
     @FXML
@@ -37,6 +38,8 @@ public class MainController implements Initializable {
     private final String[] converterType={"Currency Converter","Temperature Converter"};
     Pattern pattern=Pattern.compile("\\d*(\\.\\d*)?$");
     private double inputString;
+    private String myCoin;
+    private String myCoinTwo;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,6 +59,13 @@ public class MainController implements Initializable {
                     inputString=Double.parseDouble(newValue);
                 }
                 System.out.println(inputString);
+                if(!myCoin.equals("1")){
+                    outputAmount.setText(String.format("%.4f",CurrencyConverter.convertToPEN(myCoin,inputString)));
+                } else if (myCoin.equals("1")) {
+                    if(myCoinTwo!=null) {
+                        outputAmount.setText(String.format("%.4f", CurrencyConverter.convertToCoins(myCoinTwo, inputString)));
+                    }
+                }
             }else{
                 outputAmount.clear();
                 errorMessage.setVisible(true);
@@ -79,36 +89,48 @@ public class MainController implements Initializable {
         }
     }
     private void getCoinType(ActionEvent event){
-        String myCoin = String.valueOf(comboBoxFrom.getValue());
+        myCoin = String.valueOf(comboBoxFrom.getValue());
+        inputAmount.clear();
+        outputAmount.clear();
+        inputAmount.requestFocus();
         System.out.println(myCoin);
         if(myCoin.equals("1")){
             comboBoxTo.getItems().clear();
             comboBoxTo.getItems().addAll(createCollectionFrom());
-            comboBoxTo.setCellFactory(new Callback<ListView<ConvertFrom>, ListCell<ConvertFrom>>() {
+            comboBoxTo.setCellFactory(new Callback<ListView<ObjectCurrency>, ListCell<ObjectCurrency>>() {
                 @Override
-                public ListCell<ConvertFrom> call(ListView<ConvertFrom> convertFromListView) {
+                public ListCell<ObjectCurrency> call(ListView<ObjectCurrency> convertFromListView) {
                     return new IconCell();
                 }
             });
             comboBoxTo.setButtonCell(new IconCell());
+            comboBoxTo.setOnAction(this::getCoinTypeTo);
         } else if (myCoin.equals("1")==false) {
             comboBoxTo.getItems().clear();
             comboBoxTo.getItems().addAll(createCollectionTo());
-            comboBoxTo.setCellFactory(new Callback<ListView<ConvertFrom>, ListCell<ConvertFrom>>() {
+            comboBoxTo.setCellFactory(new Callback<ListView<ObjectCurrency>, ListCell<ObjectCurrency>>() {
                 @Override
-                public ListCell<ConvertFrom> call(ListView<ConvertFrom> convertFromListView) {
+                public ListCell<ObjectCurrency> call(ListView<ObjectCurrency> convertFromListView) {
                     return new IconCell();
                 }
             });
             comboBoxTo.setButtonCell(new IconCell());
             comboBoxTo.setValue(comboBoxTo.getItems().get(0));
+            comboBoxTo.setOnAction(this::getCoinTypeTo);
         }
+    }
+    private void getCoinTypeTo(ActionEvent event){
+        myCoinTwo=String.valueOf(comboBoxTo.getValue());
+        inputAmount.clear();
+        outputAmount.clear();
+        inputAmount.requestFocus();
+        System.out.println(myCoinTwo);
     }
     private void addListCurrency(){
         comboBoxFrom.getItems().addAll(createCollection());
-        comboBoxFrom.setCellFactory(new Callback<ListView<ConvertFrom>, ListCell<ConvertFrom>>() {
+        comboBoxFrom.setCellFactory(new Callback<ListView<ObjectCurrency>, ListCell<ObjectCurrency>>() {
             @Override
-            public ListCell<ConvertFrom> call(ListView<ConvertFrom> convertFromListView) {
+            public ListCell<ObjectCurrency> call(ListView<ObjectCurrency> convertFromListView) {
                 return new IconCell();
             }
         });
