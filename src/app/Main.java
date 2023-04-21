@@ -13,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/Main.fxml"));
-        Image icon=new Image(Objects.requireNonNull(getClass().getResourceAsStream("../assets/motherboard-fill.png")));
+        Image icon=new Image(Objects.requireNonNull(getClass().getResourceAsStream("../assets/motherboard.png")));
         stage.getIcons().add(icon);
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Converter");

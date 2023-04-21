@@ -2,22 +2,22 @@ package utilities;
 
 import javafx.scene.image.Image;
 
-public class ObjectCurrency {
+public class ObjectList {
     private final int id;
-    private final String coin;
+    private final String name;
     private final Image flag;
 
-    public ObjectCurrency(int id, String coin, Image flag) {
+    public ObjectList(int id, String name, Image flag) {
         this.id = id;
-        this.coin = coin;
+        this.name = name;
         this.flag = flag;
     }
 
     public Image getFlag() {
         return flag;
     }
-    public String getCoin() {
-        return coin;
+    public String getName() {
+        return name;
     }
 
     @Override
