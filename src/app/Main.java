@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import utilities.CoinService;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -19,6 +20,7 @@ public class Main extends Application {
         stage.setTitle("Converter");
         stage.setScene(scene);
         stage.show();
+        CoinService.initialize();
     }
     public static void main(String[] args) {
         launch(args);

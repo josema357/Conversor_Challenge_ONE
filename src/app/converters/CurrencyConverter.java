@@ -1,19 +1,21 @@
 package app.converters;
 
+import utilities.CoinService;
 import utilities.CoinType;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class CurrencyConverter {
-    protected static List<CoinType> createList(){
+    private static List<CoinType> createList(){
         List<CoinType> coinTypeList=new ArrayList<>();
         coinTypeList.add(new CoinType("Peruvian Sol",1.0));
-        coinTypeList.add(new CoinType("American Dollars",0.2653));
-        coinTypeList.add(new CoinType("Euros",0.2433));
-        coinTypeList.add(new CoinType("Pounds Sterling",0.2129));
-        coinTypeList.add(new CoinType("Japanese Yen",34.8401));
-        coinTypeList.add(new CoinType("South Korean Won",348.8883));
+        coinTypeList.add(new CoinType("American Dollars", CoinService.getRates().getDouble("USD")));
+        coinTypeList.add(new CoinType("Euros",CoinService.getRates().getDouble("EUR")));
+        coinTypeList.add(new CoinType("Pounds Sterling",CoinService.getRates().getDouble("GBP")));
+        coinTypeList.add(new CoinType("Japanese Yen",CoinService.getRates().getDouble("JPY")));
+        coinTypeList.add(new CoinType("South Korean Won",CoinService.getRates().getDouble("KRW")));
 
         return coinTypeList;
     }
